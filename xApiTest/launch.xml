@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<launchparams>
+	<launchpage>a001index.html</launchpage>
+	<basicuserid></basicuserid>
+	<basicpassword></basicpassword>
+	<email></email>
+	<endpoint>https://pra.waxlrs.com/TCAPI/</endpoint>
+	<activityid>http://www.uniqueurl.com/xapitest</activityid>
+</launchparams>

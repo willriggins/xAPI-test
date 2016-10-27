@@ -1,0 +1,696 @@
+<html>
+<head>
+<style type="text/css">
+	body{	background:#336699;
+			font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+			font-size:small;
+			margin:8px 0 16px;
+			text-align:center;
+	}
+	#form_container{
+		background:#fff;
+		margin:0 auto;
+		text-align:left;
+		width:640px;
+	}
+	#form_margin{
+		margin:20px 20px 0;
+		padding:0 0 20px;
+	}
+	#top{
+		display:block;
+		height:10px;
+		margin:10px auto 0;
+		width:650px;
+	}
+
+	#footer{
+		width:640px;
+		clear:both;
+		color:#999999;
+		text-align:center;
+		width:640px;
+		padding-bottom: 15px;
+		font-size: 85%;
+	}
+
+	#bottom{
+		display:block;
+		height:10px;
+		margin:0 auto;
+		width:650px;
+	}
+	div.topbox{
+		background-color:#6699CC;
+		padding:0;
+	}
+	ul{
+		font-size:100%;
+		list-style-type:none;
+		margin:0;
+		padding:0;
+		width:100%;
+	}
+	li{
+		display:block;
+		margin:0;
+		padding:4px 5px 2px 9px;
+		position:relative;
+	}
+	li:after{
+		clear:both;
+		content:".";
+		display:block;
+		height:0;
+		visibility:hidden;
+	}
+	.buttons:after{
+		clear:both;
+		content:".";
+		display:block;
+		height:0;
+		visibility:hidden;
+	}
+
+	.buttons{
+		clear:both;
+		display:block;
+		margin-top:10px;
+	}
+
+	* html li{
+		height:1%;
+	}
+
+	* html .buttons{
+		height:1%;
+	}
+
+	* html li div{
+		display:inline-block;
+	}
+
+	li div{
+		color:#444;
+		margin:0 4px 0 0;
+		padding:0 0 8px;
+	}
+
+	li span{
+		color:#444;
+		float:left;
+		margin:0 4px 0 0;
+		padding:0 0 8px;
+	}
+
+	li div.left{
+		display:inline;
+		float:left;
+		width:48%;
+	}
+
+	li div.right{
+		display:inline;
+		float:right;
+		width:48%;
+	}
+
+	li div.left .medium{
+		width:100%;
+	}
+
+	li div.right .medium{
+		width:100%;
+	}
+
+	.clear{
+		clear:both;
+	}
+
+	li div label{
+		clear:both;
+		color:#444;
+		display:block;
+		font-size:9px;
+		line-height:9px;
+		margin:0;
+		padding-top:3px;
+	}
+
+	li span label{
+		clear:both;
+		color:#444;
+		display:block;
+		font-size:9px;
+		line-height:9px;
+		margin:0;
+		padding-top:3px;
+	}
+
+	.form_description{
+		border-bottom:1px dotted #ccc;
+		clear:both;
+		display:inline-block;
+		margin:0 0 1em;
+	}
+
+	.form_description[class]{
+		display:block;
+	}
+
+	.form_description h2{
+		clear:left;
+		font-size:160%;
+		font-weight:400;
+		margin:0 0 3px;
+	}
+
+	.form_description p{
+		font-size:95%;
+		line-height:130%;
+		margin:0 0 12px;
+	}
+
+	hr{
+		display:none;
+	}
+
+	ul li.first{
+		border-top:none !important;
+		margin-top:0 !important;
+		padding-top:0 !important;
+	}
+	input.button_text{
+		overflow:visible;
+		padding:0 7px;
+		width:auto;
+	}
+
+	.buttons input{
+		font-size:120%;
+		margin-right:5px;
+	}
+	label.description{
+		border:none;
+		color:#222;
+		display:block;
+		font-size:95%;
+		font-weight:700;
+		line-height:150%;
+		padding:0 0 1px;
+	}
+	input.text{
+		border-bottom:1px solid #ddd;
+		border-left:1px solid #c3c3c3;
+		border-right:1px solid #c3c3c3;
+		border-top:1px solid #7c7c7c;
+		color:#333;
+		font-size:100%;
+		margin:0;
+		padding:2px 0;
+	}
+	li.highlighted
+	{
+		background-color:#fff7c0;
+	}
+
+	.guidelines
+	{
+		background:#f5f5f5;
+		border:1px solid #e6e6e6;
+		color:#444;
+		font-size:80%;
+		left:50%;
+		line-height:130%;
+		margin:0 0 0 8px;
+		padding:8px 10px 9px;
+		position:absolute;
+		top:10px;
+		visibility:hidden;
+		width:42%;
+		z-index:1000;
+	}
+
+	.guidelines small
+	{
+		font-size:105%;
+	}
+
+	li.highlighted .guidelines
+	{
+		visibility:visible;
+	}
+
+	li:hover .guidelines
+	{
+		visibility:visible;
+	}
+
+	.no_guidelines .guidelines
+	{
+		display:none !important;
+	}
+
+	.no_guidelines li
+	{
+		width:97%;
+	}
+
+	select.select
+	{
+		color:#333;
+		font-size:100%;
+		margin:1px 0;
+		padding:1px 0 0;
+		border-bottom:1px solid #ddd;
+		border-left:1px solid #c3c3c3;
+		border-right:1px solid #c3c3c3;
+		border-top:1px solid #7c7c7c;
+	}
+	input.text
+	{
+		border-bottom:1px solid #ddd;
+		border-left:1px solid #c3c3c3;
+		border-right:1px solid #c3c3c3;
+		border-top:1px solid #7c7c7c;
+		color:#333;
+		font-size:100%;
+		margin:0;
+		padding:2px 0;
+		width: 40%;
+	}
+</style>
+<script>
+var launchData = {"launchpage":"index.html","endpoint":null,"id":null,"pw":null,"email":null,"actid":null };
+function setup(){
+
+	//attempt to load the XML file with our settings
+	var httpReq = getHTTP( 'launch.xml', 'GET', null );
+	if( httpReq.status != 200 && httpReq.status != 0 ){
+	  alert( 'You must run this content from a web-based server ' + httpReq.statusText );
+	  return;
+	}
+	try{
+		var nl=null;
+		if(httpReq.response){
+			if(window.ActiveXObject){
+				nl = new ActiveXObject("Microsoft.XMLDOM");
+				nl.async = "false";
+				nl.loadXML(httpReq.response);
+			}else{
+				var domParser = new DOMParser();
+				nl = domParser.parseFromString(httpReq.response,'application/xml');
+			}
+			nl = nl.firstChild;
+		}else return;
+		
+		if( nl == n ) throw '';
+
+		if( nl.nodeName != 'launchparams' ){
+			if( nl.firstChild && nl.firstChild.nextSibling && nl.firstChild.nextSibling.nodeName == 'launchparams' ) nl = nl.firstChild.nextSibling;
+			else return;
+		}
+	} catch(e){}
+	
+	//Parse the data from the XML
+	var str = getNVStr(nl,"launchpage");
+	if(str&&str.length) launchData.launchpage = str;
+	str = getNVStr(nl,"basicuserid");
+	if(str&&str.length) launchData.id = str;
+	str = getNVStr(nl,"basicpassword");
+	if(str&&str.length) launchData.pw = str;
+	str = getNVStr(nl,"email");
+	if(str&&str.length) launchData.email = str;
+	str = getNVStr(nl,"endpoint");
+	if(str&&str.length) launchData.endpoint = str;
+	str = getNVStr(nl,"activityid");
+	if(str&&str.length) launchData.actid = str;
+	
+	//Is everything filled in?
+	if(launchData.id&&launchData.pw&&launchData.email&&launchData.actid&&launchData.endpoint){
+		launchCourse();
+		return;
+	}
+	
+	//Hide prompts that are already filled in from the XML
+	if(launchData.id) document.getElementById('li_id').style.display="none";
+	if(launchData.pw) document.getElementById('li_pw').style.display="none";
+	if(launchData.email) document.getElementById('li_email').style.display="none";
+	if(launchData.actid) document.getElementById('li_actid').style.display="none";
+	if(launchData.endpoint) document.getElementById('li_endpoint').style.display="none";
+}
+
+function launchCourse(){
+	if(document.getElementById('li_id').style.display!="none")
+		launchData.id = document.getElementById('element_id').value;
+	if(document.getElementById('li_pw').style.display!="none")
+		launchData.pw = document.getElementById('element_pw').value;
+	if(document.getElementById('li_email').style.display!="none")
+		launchData.email = document.getElementById('element_email').value;
+	if(document.getElementById('li_actid').style.display!="none")
+		launchData.actid = document.getElementById('element_actid').value;
+	if(document.getElementById('li_endpoint').style.display!="none")
+		launchData.endpoint = document.getElementById('element_endpoint').value;
+
+	if(launchData.id&&launchData.pw&&launchData.email&&launchData.actid&&launchData.endpoint){
+		var b64str = Base64.encode(launchData.id + ":" + launchData.pw);
+		//var cmdLine = launchData.launchpage + '?endpoint=' + launchData.endpoint + '&auth=Basic ' + b64str + '&actor={"name":["' + launchData.email + '"],"account":[{"accountServiceHomePage":"http://lectora.com/","accountName":"' + launchData.email + '"}],"objectType":"Agent"}&activity_id=' + launchData.actid;
+		//alert( cmdLine );
+		window.location.href = launchData.launchpage + '?endpoint=' + launchData.endpoint + '&auth=Basic ' + b64str + '&actor={"name":["' + launchData.email + '"],"account":[{"accountServiceHomePage":"http://lectora.com/","accountName":"' + launchData.email + '"}],"objectType":"Agent"}&activity_id=' + launchData.actid;
+	}else{
+		alert( "Please fill out the entire form");
+	}
+}
+
+function getNVStr(nl,tag,dv)
+{
+	if ( !nl ) return null;
+	var cNodes = nl.childNodes;
+	var len = cNodes.length;
+	var taglowercase = tag.toLowerCase();
+	var taglen = tag.length;
+	for (var i=0; i < len; i++)
+	{
+		var cNode = cNodes[i];
+		if (cNode.nodeType==1)
+		{
+			var chldtag = cNode.tagName;
+			if (chldtag.length==taglen)
+			{
+				if ( chldtag == tag || chldtag.toLowerCase() == taglowercase )
+					return getNodeValueStr(cNode);
+			}
+		}
+	}
+	return dv;
+}
+
+function getNodeValueStr(xn)
+{
+	var value = "";
+
+	if ( xn && xn.firstChild )
+	{
+		var node = xn.firstChild;
+		do
+		{
+			if ( node.nodeType != 3 ) break;
+			value += node.nodeValue;
+		} while ( (node = node.nextSibling) );
+	}
+
+	return value;
+}
+
+
+function getHTTP(dest, method, parms){
+	var httpReq;
+	if( method == 'GET' ) {
+		if( parms ){
+			dest += '?' + parms;
+			parms = null;
+		}
+	}
+
+	var requestSent = 0;
+	try {
+		// branch for native XMLHttpRequest object
+		if (window.XMLHttpRequest) {
+			httpReq = new XMLHttpRequest();
+			httpReq.open(method, dest, false);
+			httpReq.onreadystatechange = null;
+			if( method == 'POST' ) {
+			httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			}
+			httpReq.send(parms);
+			requestSent = 1;
+		}
+	}
+	catch(e){}
+
+	// branch for IE/Windows ActiveX version
+	if (!requestSent && window.ActiveXObject) {
+		httpReq = new ActiveXObject("Microsoft.XMLHTTP");
+		if (httpReq) {
+			httpReq.open(method, dest, false);
+			if( method == 'POST' ) {
+				httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			}
+			httpReq.send(parms);
+		}
+	}
+
+	return httpReq;
+}
+
+//The following set of functions are from base64.js, included inline just for simplicity
+//Copyright (c) 2008 Fred Palmer fred.palmer_at_gmail.com
+function StringBuffer()
+{ 
+    this.buffer = []; 
+} 
+
+StringBuffer.prototype.append = function append(string)
+{ 
+    this.buffer.push(string); 
+    return this; 
+}; 
+
+StringBuffer.prototype.toString = function toString()
+{ 
+    return this.buffer.join(""); 
+}; 
+
+var Base64 =
+{
+    codex : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+
+    encode : function (input)
+    {
+        var output = new StringBuffer();
+
+        var enumerator = new Utf8EncodeEnumerator(input);
+        while (enumerator.moveNext())
+        {
+            var chr1 = enumerator.current;
+
+            enumerator.moveNext();
+            var chr2 = enumerator.current;
+
+            enumerator.moveNext();
+            var chr3 = enumerator.current;
+
+            var enc1 = chr1 >> 2;
+            var enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+            var enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+            var enc4 = chr3 & 63;
+
+            if (isNaN(chr2))
+            {
+                enc3 = enc4 = 64;
+            }
+            else if (isNaN(chr3))
+            {
+                enc4 = 64;
+            }
+
+            output.append(this.codex.charAt(enc1) + this.codex.charAt(enc2) + this.codex.charAt(enc3) + this.codex.charAt(enc4));
+        }
+
+        return output.toString();
+    },
+
+    decode : function (input)
+    {
+        var output = new StringBuffer();
+
+        var enumerator = new Base64DecodeEnumerator(input);
+        while (enumerator.moveNext())
+        {
+            var charCode = enumerator.current;
+
+            if (charCode < 128)
+                output.append(String.fromCharCode(charCode));
+            else if ((charCode > 191) && (charCode < 224))
+            {
+                enumerator.moveNext();
+                var charCode2 = enumerator.current;
+
+                output.append(String.fromCharCode(((charCode & 31) << 6) | (charCode2 & 63)));
+            }
+            else
+            {
+                enumerator.moveNext();
+                var charCode2 = enumerator.current;
+
+                enumerator.moveNext();
+                var charCode3 = enumerator.current;
+
+                output.append(String.fromCharCode(((charCode & 15) << 12) | ((charCode2 & 63) << 6) | (charCode3 & 63)));
+            }
+        }
+
+        return output.toString();
+    }
+}
+
+
+function Utf8EncodeEnumerator(input)
+{
+    this._input = input;
+    this._index = -1;
+    this._buffer = [];
+}
+
+Utf8EncodeEnumerator.prototype =
+{
+    current: Number.NaN,
+
+    moveNext: function()
+    {
+        if (this._buffer.length > 0)
+        {
+            this.current = this._buffer.shift();
+            return true;
+        }
+        else if (this._index >= (this._input.length - 1))
+        {
+            this.current = Number.NaN;
+            return false;
+        }
+        else
+        {
+            var charCode = this._input.charCodeAt(++this._index);
+
+            // "\r\n" -> "\n"
+            //
+            if ((charCode == 13) && (this._input.charCodeAt(this._index + 1) == 10))
+            {
+                charCode = 10;
+                this._index += 2;
+            }
+
+            if (charCode < 128)
+            {
+                this.current = charCode;
+            }
+            else if ((charCode > 127) && (charCode < 2048))
+            {
+                this.current = (charCode >> 6) | 192;
+                this._buffer.push((charCode & 63) | 128);
+            }
+            else
+            {
+                this.current = (charCode >> 12) | 224;
+                this._buffer.push(((charCode >> 6) & 63) | 128);
+                this._buffer.push((charCode & 63) | 128);
+            }
+
+            return true;
+        }
+    }
+}
+
+function Base64DecodeEnumerator(input)
+{
+    this._input = input;
+    this._index = -1;
+    this._buffer = [];
+}
+
+Base64DecodeEnumerator.prototype =
+{
+    current: 64,
+
+    moveNext: function()
+    {
+        if (this._buffer.length > 0)
+        {
+            this.current = this._buffer.shift();
+            return true;
+        }
+        else if (this._index >= (this._input.length - 1))
+        {
+            this.current = 64;
+            return false;
+        }
+        else
+        {
+            var enc1 = Base64.codex.indexOf(this._input.charAt(++this._index));
+            var enc2 = Base64.codex.indexOf(this._input.charAt(++this._index));
+            var enc3 = Base64.codex.indexOf(this._input.charAt(++this._index));
+            var enc4 = Base64.codex.indexOf(this._input.charAt(++this._index));
+
+            var chr1 = (enc1 << 2) | (enc2 >> 4);
+            var chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+            var chr3 = ((enc3 & 3) << 6) | enc4;
+
+            this.current = chr1;
+
+            if (enc3 != 64)
+                this._buffer.push(chr2);
+
+            if (enc4 != 64)
+                this._buffer.push(chr3);
+
+            return true;
+        }
+    }
+};
+//End of base64.js
+
+</script>
+</head>
+<body onload="setup()">
+	<div id="form_container">
+		<div class="topbox">&nbsp;<br />&nbsp;<br />&nbsp;</div>						
+		<div id="form_margin">
+			<div class="form_description">
+				<h2>xAPI Launcher</h2>
+				<p>Please fill in the fields below to launch your course</p>
+			</div>						
+			<ul >
+				<li id="li_id">
+					<label class="description" for="element_id">ID </label>
+					<div>
+						<input id="element_id" name="element_id" class="element text medium" type="text" maxlength="255" value=""/> 
+					</div>
+					<p class="guidelines" id="guide_id"><small>This is your ID on the LRS</small></p> 
+				</li>
+				<li id="li_pw">
+					<label class="description" for="element_pw">Password </label>
+					<div>
+						<input id="element_pw" name="element_pw" class="element text medium" type="password" maxlength="255" value=""/> 
+					</div>
+					<p class="guidelines" id="guide_pw"><small>This is your password on the LRS</small></p> 
+				</li>
+				<li id="li_email" >
+					<label class="description" for="element_email">Email </label>
+					<div>
+						<input id="element_email" name="element_email" class="element text medium" type="text" maxlength="255" value=""/> 
+					</div>
+					<p class="guidelines" id="guide_email"><small>This email will identify your course results on the LRS</small></p> 
+				</li>
+				<li id="li_actid" >
+					<label class="description" for="element_actid">Activity ID </label>
+					<div>
+						<input id="element_actid" name="element_actid" class="element text medium" type="text" maxlength="255" value=""/> 
+					</div>
+					<p class="guidelines" id="guide_actid"><small>This is the unique identifier for the course.</small></p> 
+				</li>
+				<li id="li_endpoint" >
+					<label class="description" for="element_endpoint">LRS Endpoint </label>
+					<div>
+						<input id="element_endpoint" name="element_endpoint" class="element text medium" type="text" maxlength="255" value="http://"/> 
+					</div>
+					<p class="guidelines" id="guide_endpoint"><small>This is the URL that the course results will be sent to</small></p> 
+				</li>
+				<li class="buttons">
+					<input id="launch" name="launch" class="button_text" type="button" value="Launch" onclick="launchCourse();"/>
+				</li>
+			</ul>
+		</div>
+		<div id="footer"></div>
+	</div>
+</body>
+</html>
