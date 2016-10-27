@@ -4,6 +4,6 @@
 	<basicuserid></basicuserid>
 	<basicpassword></basicpassword>
 	<email></email>
-	<endpoint>https://pra.waxlrs.com/TCAPI/</endpoint>
+	<endpoint>https://pra.waxlrs.com/TCAPI/statements</endpoint>
 	<activityid>http://www.uniqueurl.com/xapitest</activityid>
 </launchparams>
